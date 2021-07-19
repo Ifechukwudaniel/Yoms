@@ -7,16 +7,18 @@ const make_request = require("../lib/makeRequest");
 // Defining the people we want to recognize later
 var PEOPLE = [
   {
-    name: "Yesufu Semira Alomo",
+    name: "Victor Aigbekaen",
     id: uuid(),
+    email: "aigbekaenv@gmail.com",
     photo:
-      "https://res.cloudinary.com/dn5hzsnvs/image/upload/v1626677587/218179055_217436200261126_5230528539605898929_n_hvxxf9.jpg",
+      "https://res.cloudinary.com/dn5hzsnvs/image/upload/v1626710284/199016123_216784013608642_1880002820296103463_n_f2qkjj.jpg",
   },
   {
-    name: "Yesufu Semira Alomo",
+    name: "Victor Aigbekaen",
     id: uuid(),
+    email: "aigbekaenv@gmail.com",
     photo:
-      "https://res.cloudinary.com/dn5hzsnvs/image/upload/v1626677599/219538612_1505884249786677_460548559625187929_n_c1dwui.jpg",
+      "https://res.cloudinary.com/dn5hzsnvs/image/upload/v1626710285/203614925_526498415199763_3815887773369457424_n_arwvie.jpg",
   },
 ];
 

@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import FaceWebCam from "../components/faceWebCam";
 
 export default function Login() {
+  const webcamReference = useRef(null);
+  const canvasReference = useRef(null);
+
+  const capture = React.useCallback(() => {
+    const imageSrc = webcamReference.current.getScreenshot();
+    console.log(imageSrc);
+  }, [webcamReference]);
+
   return (
     <>
       <div class="loginheader">
@@ -13,11 +21,20 @@ export default function Login() {
       </div>
       <div class="centercontent">
         <div class="topdiv">
-          <FaceWebCam />
+          <FaceWebCam
+            webcamReference={webcamReference}
+            canvasReference={canvasReference}
+          />
         </div>
         <div class="bottomdiv">
           <div class="imageactiondiv">
-            <a href="#" class="actionbutton w-button">
+            <a
+              onClick={(e) => {
+                e.preventDefault();
+                capture();
+              }}
+              class="actionbutton w-button"
+            >
               Capture Image
             </a>
             <a href="#" class="actionbutton w-button">

@@ -4,9 +4,9 @@ import * as facemesh from "@tensorflow-models/facemesh";
 import Webcam from "react-webcam";
 import { drawMesh } from "./meshUtilities.js";
 
-const FaceWebCam = () => {
-  const webcamReference = useRef(null);
-  const canvasReference = useRef(null);
+const FaceWebCam = ({ webcamReference, canvasReference }) => {
+  const webcamRef = webcamReference;
+  const canvasRef = canvasReference;
 
   const loadFacemesh = async () => {
     const network = await facemesh.load({
@@ -18,32 +18,32 @@ const FaceWebCam = () => {
 
   const detectFace = async (network) => {
     if (
-      typeof webcamReference.current !== "undefined" &&
-      webcamReference.current !== null &&
-      webcamReference.current.video.readyState === 4
+      typeof webcamRef.current !== "undefined" &&
+      webcamRef.current !== null &&
+      webcamRef.current.video.readyState === 4
     ) {
       // Get Video Properties
-      const video = webcamReference.current.video;
-      const videoWidth = webcamReference.current.video.videoWidth;
-      const videoHeight = webcamReference.current.video.videoHeight;
+      const video = webcamRef.current.video;
+      const videoWidth = webcamRef.current.video.videoWidth;
+      const videoHeight = webcamRef.current.video.videoHeight;
 
       // Set video width
-      webcamReference.current.video.width = videoWidth;
-      webcamReference.current.video.height = videoHeight;
+      webcamRef.current.video.width = videoWidth;
+      webcamRef.current.video.height = videoHeight;
 
       // Set canvas width
-      canvasReference.current.width = videoWidth;
-      canvasReference.current.height = videoHeight;
+      canvasRef.current.width = videoWidth;
+      canvasRef.current.height = videoHeight;
 
       // Make Detections
       const faceEstimate = await network.estimateFaces(video);
-      console.log(faceEstimate);
+      //   console.log(faceEstimate);
 
       //Get canvas context
-      const ctx = canvasReference.current.getContext("2d");
+      const ctx = canvasRef.current.getContext("2d");
       drawMesh(faceEstimate, ctx);
     } else {
-      console.log("No Face");
+      //   console.log("No Face");
       // alert("No Face");
     }
   };
@@ -53,7 +53,7 @@ const FaceWebCam = () => {
   return (
     <>
       <Webcam
-        ref={webcamReference}
+        ref={webcamRef}
         style={{
           position: "absolute",
           marginLeft: "auto",
@@ -68,7 +68,7 @@ const FaceWebCam = () => {
       />
 
       <canvas
-        ref={canvasReference}
+        ref={canvasRef}
         style={{
           position: "absolute",
           marginLeft: "auto",

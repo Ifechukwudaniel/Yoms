@@ -7,7 +7,7 @@ make_request(
   "https://api.luxand.cloud/photo/search",
   {
     photo:
-      "https://res.cloudinary.com/dn5hzsnvs/image/upload/v1626679218/219256520_1080130949183851_7222184608222945612_n_1_mmyl9t.jpg",
+      "https://res.cloudinary.com/dn5hzsnvs/image/upload/v1626710894/202981799_541559883636989_2369537793761785373_n_x78uya.jpg",
   },
   {},
   function (body) {
