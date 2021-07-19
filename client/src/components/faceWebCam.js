@@ -10,7 +10,7 @@ const FaceWebCam = () => {
 
   const loadFacemesh = async () => {
     const network = await facemesh.load({
-      inputResolution: { width: 720, height: 500 },
+      inputResolution: { width: 500, height: 350 },
       scale: 0.8,
     });
     setInterval(() => detectFace(network), 100);
@@ -62,8 +62,8 @@ const FaceWebCam = () => {
           right: 0,
           textAlign: "center",
           zindex: 9,
-          width: 720,
-          height: 500,
+          width: 500,
+          height: 340,
         }}
       />
 
@@ -77,8 +77,8 @@ const FaceWebCam = () => {
           right: 0,
           textAlign: "center",
           zindex: 9,
-          width: 720,
-          height: 500,
+          width: 500,
+          height: 340,
         }}
       />
     </>
